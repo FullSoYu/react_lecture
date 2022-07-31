@@ -14,17 +14,23 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
 
+    //let counter = 0;
     const App = () => {
-      const countup = () => {
-        counter += 1;
-        ReactDOM.render(<App />, root);
+      const [counter, setCounter] = React.useState(0);
+
+      const domodifiy = () => {
+        setCounter(counter + 1);
       };
+
+      //   const countup = () => {
+      //     counter += 1;
+      //     ReactDOM.render(<App />, root);
+      //   };
       return (
         <div>
-          <h3>Total click: {counter}</h3>
-          <button onClick={countup}>Click me</button>
+          <h3>Total click: {counter} </h3>
+          <button onClick={domodifiy}>Click me</button>
         </div>
       );
     };
